@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>SKT IoT(Cat.M1) 온라인 신청</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<a href="#" class="back"><i class="icon ico_back"></i></a>
+
+			<!-- 
+			20180312 수정
+			페이지 타이틀 변경
+
+			신규가입일때는 신규가입
+			단말변경/선납연장일때는 변경/연장
+
+			20180323 수정
+			변경/연장 -> 단말변경
+			-->
+			<strong>단말변경</strong>
+
+			<a href="#" class="btn_faq" id="btn_faq">FAQ</a>
+			<a href="./index.html" class="home"><i class="icon ico_home"></i></a>
+
+			<!-- 
+			20180312 수정
+			Step 정보 수정
+			기존 숫자형태에서 페이지별 타이틀로
+
+			현재 페이지는 active 클래스
+			지난 페이지는 comp 클래스
+
+			예)
+					<li class="active"><span>고객정보 확인</span></li>
+					<li><span>신청내역조회</span></li>
+
+					<li class="comp"><span>고객정보 확인</span></li>
+					<li class="active"><span>신청내역조회</span></li>
+			-->
+			<div class="step">
+				<ul>
+					<li class="comp"><span>고객정보 확인</span></li>
+					<li class="comp"><span>신청내역조회</span></li>
+					<li class="active"><span>선납연장</span></li>
+					<li><span>결제요청</span></li>
+				</ul>
+			</div>
+			<!-- //Progress -->
+		</div>
+	</div><!-- //Header -->
+
+	<div id="container">
+		<div id="content">
+
+			<div class="article">
+				<h1 class="article_tit">요금제</h1>
+
+				<input type="text" value="000000 선불 요금제" readonly="readonly" placeholder="" />
+			</div>
+			<!-- //요금제 -->
+
+			<div class="article">
+				<h1 class="article_tit">상세정보</h1>
+
+				<div class="detail_view">Cat.M1 단말 전용 가장 경제적인 선불 요금제 상품입니다.</div>
+			</div>
+			<!-- //상세정보 -->
+
+			<!-- 
+			20180307 수정
+			금액 항목 삭제
+			-->
+
+			<!-- 
+			20180307 수정
+			선납잔액 -> 현재잔액
+			-->
+			<div class="article">
+				<h1 class="article_tit">현재잔액</h1>
+
+				<!-- 
+				20180305
+				금액 [원] 추가
+				-->
+				<div class="pay">
+					<input type="text" class="pay ta_r" value="1,000" readonly="readonly" placeholder="" />
+					<span>원</span>
+				</div>
+			</div>
+			<!-- //선납잔액 -->
+
+			<!-- 
+			20180307 수정
+			충전금액 -> 신규충전금액
+			-->
+			<div class="article">
+				<h1 class="article_tit">신규충전금액</h1>
+
+				<!-- 
+				20180305
+				금액 [원] 추가
+				-->
+				<div class="pay">
+					<input type="text" class="pay emphasis ta_r" value="680,000" readonly="readonly" placeholder="" />
+					<span>원</span>
+				</div>
+				<p class="point"><i class="icon ico_point"></i>선택한 요금제의 12개월 합산금액이며, 본인 인증하신 정보의 카드로 결제됩니다.</p>
+			</div>
+			<!-- //충전금액 -->
+
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+
+	<div class="fixed">
+		<div>
+			<button type="button" class="btn_ext active">다음</button>
+		</div>
+	</div>
+</div>
+</body>
+</html>

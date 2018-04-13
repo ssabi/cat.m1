@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<!-- 
+20180320 수정
+title 수정
+SKT IoT(Cat.M1) 온라인개통 서비스 -> SKT IoT(Cat.M1) 온라인 신청
+-->
+<title>SKT IoT(Cat.M1) 온라인 신청</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<a href="#" class="back"><i class="icon ico_back"></i></a>
+
+			<!-- 
+			20180312 수정
+			페이지 타이틀 변경
+
+			신규가입일때는 신규가입
+			단말변경/선납연장일때는 변경/연장
+			-->
+			<strong>신규가입</strong>
+
+			<a href="#" class="btn_faq" id="btn_faq">FAQ</a>
+			<a href="./index.html" class="home"><i class="icon ico_home"></i></a>
+
+			<!-- 
+			20180312 수정
+			Step 정보 수정
+			기존 숫자형태에서 페이지별 타이틀로
+
+			현재 페이지는 active 클래스
+			지난 페이지는 comp 클래스
+
+			예)
+					<li class="active"><span>단말기등록</span></li>
+					<li><span>고객정보등록</span></li>
+
+					<li class="comp"><span>단말기등록</span></li>
+					<li class="active"><span>고객정보등록</span></li>
+
+			20180320 수정
+			명칭 변경
+			개통요청 -> 가입신청
+			-->
+			<div class="step">
+				<ul>
+					<li class="comp"><span>단말기등록</span></li>
+					<li class="comp"><span>고객정보등록</span></li>
+					<li class="comp"><span>신청서작성</span></li>
+					<li class="active"><span>가입신청</span></li>
+				</ul>
+			</div>
+			<!-- //Progress -->
+		</div>
+	</div><!-- //Header -->
+
+	<div id="container">
+		<div id="content">
+
+			<div class="article">
+				<!-- 
+				20180321 수정
+				가입신청 상단 아이콘 삭제
+				-->
+				<div class="comp_desc type02">
+					<p><i class="icon ico_point off"></i>아래의 작성내용으로 서비스 개통신청을 원하실 경우 버튼을 눌러 신청을 <br>완료해 주십시오.</p>
+				</div>
+
+				<!-- 
+				20180305
+				상세정보 삭제,
+				청구서유형 -> 이메일청구서 로 변경
+
+				20180321 수정
+				디자인 변경으로 인한 div 요소 추가
+				-->
+				<div class="documents">
+					<div>
+						<strong class="doc_tit">IoT Cat.M1 온라인 가입신청서</strong>
+
+						<div class="tbl_wrap">
+							<table class="tbl">
+								<colgroup>
+									<col style="width:38%;" />
+									<col style="width:62%;" />
+								</colgroup>
+								<tbody>
+								<tr>
+									<th scope="row">이름</th>
+									<td>홍길동</td>
+								</tr>
+								<!-- 
+								20180307 수정
+								이동전화번호 -> 고객연락처
+								-->
+								<tr>
+									<th scope="row">고객연락처</th>
+									<td>010-1234-5678</td>
+								</tr>
+								<tr>
+									<th scope="row">요금제</th>
+									<td>00000 요금제</td>
+								</tr>
+								<!-- 
+								<tr>
+									<th scope="row">상세정보</th>
+									<td>Cat.M1 단말 전용 가장 경제적인 후불 요금제 상품입니다.</td>
+								</tr>
+								 -->
+								 <!-- 
+								 20180307 수정
+								 금액 -> 금액(VAT 포함)
+
+								 20180309 수정
+								 금액(VAT 포함) -> 금액(VAT포함)
+								 붙여쓰기로 변경
+								 -->
+								<tr>
+									<th scope="row">금액(VAT포함)</th>
+									<td>월 00000 원</td>
+								</tr>
+								<!-- 카드일 경우 -->
+								<tr>
+									<th scope="row">납부방법</th>
+									<td>카드</td>
+								</tr>
+								<tr>
+									<th scope="row">카드사명</th>
+									<td></td>
+								</tr>
+								<tr>
+									<th scope="row">카드번호</th>
+									<td></td>
+								</tr>
+								<!-- //카드일 경우 -->
+
+								<!-- 은행일 경우 -->
+								<tr>
+									<th scope="row">납부방법</th>
+									<td>은행</td>
+								</tr>
+								<tr>
+									<th scope="row">은행명</th>
+									<td></td>
+								</tr>
+								<tr>
+									<th scope="row">계좌번호</th>
+									<td></td>
+								</tr>
+								<!-- //은행일 경우 -->
+								<tr>
+									<th scope="row">이메일청구서</th>
+									<td>이메일주소</td>
+								</tr>
+								<tr>
+									<th scope="row">주소</th>
+									<td>[00000]서울 중구 을지로 65 을지로2가 SK텔레콤빌딩 9층</td>
+								</tr>
+								<tr>
+									<th scope="row">부가서비스</th>
+									<td></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+
+	<div class="fixed">
+		<div>
+			<!-- 
+			20180320 수정
+			버튼 명칭 변경
+			개통요청 -> 가입신청
+			-->
+			<button type="button" class="btn_ext active">가입신청</button>
+		</div>
+	</div>
+</div>
+</body>
+</html>

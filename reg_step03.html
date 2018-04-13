@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<!-- 
+20180320 수정
+title 수정
+SKT IoT(Cat.M1) 온라인개통 서비스 -> SKT IoT(Cat.M1) 온라인 신청
+-->
+<title>SKT IoT(Cat.M1) 온라인 신청</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<a href="#" class="back"><i class="icon ico_back"></i></a>
+
+			<!-- 
+			20180312 수정
+			페이지 타이틀 변경
+
+			신규가입일때는 신규가입
+			단말변경/선납연장일때는 변경/연장
+			-->
+			<strong>신규가입</strong>
+
+			<a href="#" class="btn_faq" id="btn_faq">FAQ</a>
+			<a href="./index.html" class="home"><i class="icon ico_home"></i></a>
+
+			<!-- 
+			20180312 수정
+			Step 정보 수정
+			기존 숫자형태에서 페이지별 타이틀로
+
+			현재 페이지는 active 클래스
+			지난 페이지는 comp 클래스
+
+			예)
+					<li class="active"><span>단말기등록</span></li>
+					<li><span>고객정보등록</span></li>
+
+					<li class="comp"><span>단말기등록</span></li>
+					<li class="active"><span>고객정보등록</span></li>
+
+			20180320 수정
+			명칭 변경
+			개통요청 -> 가입신청
+			-->
+			<div class="step">
+				<ul>
+					<li class="comp"><span>단말기등록</span></li>
+					<li class="comp"><span>고객정보등록</span></li>
+					<li class="active"><span>신청서작성</span></li>
+					<li><span>가입신청</span></li>
+				</ul>
+			</div>
+			<!-- //Progress -->
+		</div>
+	</div><!-- //Header -->
+
+	<div id="container">
+		<div id="content">
+
+			<div class="accordion">
+				<div class="item show">
+					<h1 class="item_tit">USIM 정보</h1>
+					<div class="item_con">
+						<div class="article">
+							<h2 class="article_tit"><label for="usim_into">USIM</label></h2>
+
+							<div class="expbox">
+								<div><input type="text" id="usim_into" value="" placeholder="" /></div>
+								<div><input type="text" value="" placeholder="" /></div>
+							</div>
+						</div>
+						<!-- //USIM -->
+
+						<button type="button" class="btn_ext" disabled="disabled">확인</button>
+						<!--
+						활성화 버튼
+						<button type="button" class="btn_ext active">확인</button>
+						 -->
+
+					</div>
+				</div>
+				<!-- //USIM 정보 -->
+
+				<div class="item">
+					<h1 class="item_tit">청구정보</h1>
+					<div class="item_con">
+						<!-- 
+						20180307 수정
+						통합청구신청 -> 이동전화 통합청구(서비스번호)
+						이동전화 통합청구 하단 문구 추가
+						-->
+						<h2 class="in_tit">이동전화 통합청구(서비스번호)</h2>
+						<p class="point"><i class="icon ico_point"></i>고객님의 IoT 서비스이용요금은 이동전화 번호로 통합청구 됩니다.</p>
+						<!-- 
+						<h2 class="in_tit">신규청구등록</h2>
+						-->
+
+						<div class="article">
+							<h2 class="article_tit"><label for="name02">청구인</label></h2>
+
+							<input type="text" id="name02" value="" placeholder="홍길동" readonly="readonly" />
+						</div>
+						<!-- //청구인 -->
+
+						<div class="article">
+							<h2 class="article_tit"><label for="tel_num">연락처</label></h2>
+
+							<div class="hpbox">
+								<div>
+									<select id="tel_num" disabled="disabled">
+										<option value="">010</option>
+										<option value="">011</option>
+										<option value="">016</option>
+										<option value="">017</option>
+									</select>
+								</div>
+								<div>
+									<input type="tel" value="" class="k_validator" maxlength="8" placeholder="'-'제외하고 입력" readonly="readonly" />
+								</div>
+							</div>
+						</div>
+						<!-- //연락처 -->
+
+						<div class="article">
+							<h2 class="article_tit">주소</h2>
+
+							<div class="extbox">
+								<input type="text" value="" placeholder="주소를 검색해주세요." readonly="readonly" />
+								<button type="button" class="btn" id="btn_addr" onclick="javascript:modal({id:'pop_addr', pageUrl:'pop_addr.html'})">검색</button>
+							</div>
+							<input type="text" value="" placeholder="" readonly="readonly" />
+							<input type="text" value="" placeholder="" readonly="readonly" />
+						</div>
+						<!-- //주소 -->
+
+						<!-- ************* 여기서부터 납부방법 관련 내용 ************* -->
+						<div class="article">
+							<h2 class="article_tit">납부방법</h2>
+
+							<!-- 
+							20180312 수정
+							신규일때는 카드, 은행 / 통합청구 일때는 지로, 카드, 은행
+							-->
+
+							<!-- 신규 --><!--
+							<div class="chkbox" id="pay_method">
+								<div class="rd_label">
+									<input type="radio" name="type01" id="chk01" value="" data-type="card" checked="checked" />
+									<label for="chk01"><span><span>카드</span></span></label>
+								</div>
+								<div class="rd_label">
+									<input type="radio" name="type01" id="chk02" value="" data-type="bank" />
+									<label for="chk02"><span><span>은행</span></span></label>
+								</div>
+							</div>
+							 --><!-- //신규 -->
+
+							 <!-- 통합청구 -->
+							 <div class="chkbox cols3" id="pay_method">
+								<div class="rd_label">
+									<input type="radio" name="type01" id="chk01" value="" data-type="giro" checked="checked" />
+									<label for="chk01"><span><span>지로</span></span></label>
+								</div>
+								<div class="rd_label">
+									<input type="radio" name="type01" id="chk02" value="" data-type="card" />
+									<label for="chk02"><span><span>카드</span></span></label>
+								</div>
+								<div class="rd_label">
+									<input type="radio" name="type01" id="chk03" value="" data-type="bank" />
+									<label for="chk03"><span><span>은행</span></span></label>
+								</div>
+							</div>
+							<!-- //통합청구 -->
+
+						</div>
+						<!-- //납부방법 -->
+
+						<div class="article pay_con show" id="giro_area">
+
+						</div>
+						<!-- //지로 -->
+
+						<div class="article pay_con" id="card_area">
+							<h2 class="article_tit"><label for="card_comp">카드사/카드번호/카드주</label><a href="#" id="btn_card_alarm"><i class="icon ico_check on"></i></a></h2>
+
+							<select id="card_comp" disabled="disabled" class="placeholder">
+								<option value="">선택</option>
+								<option value="">####01</option>
+								<option value="">####02</option>
+								<option value="">####03</option>
+								<option value="">####04</option>
+								<option value="">####05</option>
+							</select>
+
+							<input type="tel" value="" readonly="readonly" />
+							<input type="text" value="" readonly="readonly" />
+
+							<!-- 
+							20180205
+							청구정보 확인 버튼 추가
+							-->
+							<button type="button" class="btn_ext active">확인</button>
+						</div>
+						<!-- //카드사/카드번호/카드주 -->
+
+						<div class="article pay_con" id="bank_area">
+							<h2 class="article_tit"><label for="bank">은행/계좌번호/예금주</label></h2>
+
+							<select id="bank" class="placeholder">
+								<option value="">선택</option>
+								<option value="">####01</option>
+								<option value="">####02</option>
+								<option value="">####03</option>
+								<option value="">####04</option>
+								<option value="">####05</option>
+							</select>
+
+							<input type="tel" value="" class="k_validator" placeholder="'-'제외하고 계좌번호 입력" />
+							<input type="text" value="" placeholder="홍길동" />
+
+							<!-- 
+							20180205
+							청구정보 확인 버튼 추가
+							-->
+							<button type="button" class="btn_ext" disabled="disabled">확인</button>
+							<!-- 
+							활성화 버튼
+							<button type="button" class="btn_ext active">확인</button>
+							-->
+						</div>
+						<!-- //은행/계좌번호/예금주 -->
+
+						<!-- 
+						Guide
+
+						.chkbox .rd_label DIV 안에 input 과 label 의 ID, for 값은 같아야 함.
+						Input의 data-type 은 수정하지 말아주세요.
+
+						- 탭 별 해당 콘텐츠는 
+						<div class="article pay_con show" id="giro_area"> ...
+						<div class="article pay_con" id="card_area"> ...
+						<div class="article pay_con" id="bank_area"> ...
+
+						보여지는 요소는 show 클래스로 구분
+
+						예)
+						- 신규 카드, 은행만 있는경우
+						<div class="article pay_con show" id="card_area"> ...
+						<div class="article pay_con" id="bank_area"> ...
+
+						- 통합청구 지로, 카드, 은행인 경우
+						<div class="article pay_con show" id="giro_area"> ...
+						<div class="article pay_con" id="card_area"> ...
+						<div class="article pay_con" id="bank_area"> ...
+						-->
+						<!-- //************* 여기까지 납부방법 관련 내용 ************* -->
+
+						<!-- 
+						20180305
+						납부주기 위치 변경
+						-->
+						<div class="article">
+							<h2 class="article_tit"><label for="period">납기일</label></h2>
+
+							<select id="period" class="placeholder" disabled="disabled">
+								<option value="">납기일을 선택해 주세요</option>
+								<option value="">####01</option>
+								<option value="">####02</option>
+								<option value="">####03</option>
+								<option value="">####04</option>
+								<option value="">####05</option>
+							</select>
+						</div>
+						<!-- //납부주기 -->
+
+						<!-- 
+						20180208
+						청구서유형 이메일청구서로 변경
+
+						20180308
+						신규일때는 이메일청구서
+
+						20180328 수정
+						이메일 청구서 삭제
+						-->
+
+					</div>
+				</div>
+				<!-- //청구정보 -->
+
+				<div class="item">
+					<h1 class="item_tit">부가서비스</h1>
+					<div class="item_con">
+						<div class="article">
+							<h2 class="article_tit"><label for="extra_service">부가서비스 선택</label></h2>
+
+							<select id="extra_service" data-invoice-type class="placeholder">
+								<option value="">부가서비스를 선택해주세요</option>
+								<option value="">####01</option>
+								<option value="">####02</option>
+								<option value="">####03</option>
+								<option value="">####04</option>
+								<option value="">####05</option>
+							</select>
+						</div>
+						<!-- //부가서비스 선택 -->
+
+						<div class="article">
+							<h1 class="article_tit">상세정보</h1>
+
+							<div class="detail_view">0000부가서비스에 대한 상세 설명 정보 노출됩니다.</div>
+						</div>
+						<!-- //상세정보 -->
+
+						<div class="article">
+							<h1 class="article_tit">배송지정보</h1>
+
+							<div class="detail_view">[00000]서울 중구 을지로 65 을지로2가 SK텔레콤빌딩 9층</div>
+
+							<p class="point"><i class="icon ico_point"></i>별도 주소로 배송 원하실 경우 해피콜 또는 고객센터(휴대폰 국번 없이 114)로 연락해 주십시오.</p>
+						</div>
+						<!-- //상세정보 -->
+
+					</div>
+				</div>
+				<!-- //부가서비스 -->
+
+				<!-- 
+				20180307 수정
+				하단 문구 추가
+				-->
+				<div class="article">
+					<div class="graybox terms_desc">
+						<p class="point mt0"><i class="icon ico_point"></i>통합청구 원하지 않을경우 개통 후 고객센터(휴대폰 114)로 연락주세요</p>
+					</div>
+				</div>
+
+
+			</div>
+
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+
+	<!-- 
+	20180320 수정
+	하단 버튼 고정
+	-->
+	<div class="fixed">
+		<div>
+			<button type="button" class="btn_ext" disabled="disabled">다음</button>
+			<!-- 
+			활성화 버튼
+			<button type="button" class="btn_ext active">다음</button>
+			-->
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

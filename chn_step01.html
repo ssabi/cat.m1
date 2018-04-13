@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<!-- 
+20180320 수정
+title 수정
+SKT IoT(Cat.M1) 온라인개통 서비스 -> SKT IoT(Cat.M1) 온라인 신청
+-->
+<title>SKT IoT(Cat.M1) 온라인 신청</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+<script>
+//카드번호 focus 이동에 추가 작업
+var regNum = /^[0-9]*$/;
+function nextCardNumFocus(element){
+	var max = element.getAttribute("maxlength");
+	var tmpIdNum = parseInt(element.getAttribute("id").replace("cardNum", "")) + 1;
+	
+	var value = $(element).val();
+
+	if(regNum.test(value)){	//정규식으로 입력된 값이 숫자인지 판단
+		if(element.value.length >= max){
+			$("#cardNum" + tmpIdNum).focus();
+		}
+	}
+}
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<a href="#" class="back"><i class="icon ico_back"></i></a>
+
+			<!-- 
+			20180312 수정
+			페이지 타이틀 변경
+
+			신규가입일때는 신규가입
+			단말변경/선납연장일때는 변경/연장
+
+			20180323 수정
+			변경/연장 -> 단말변경
+			-->
+			<strong>단말변경</strong>
+
+			<a href="#" class="btn_faq" id="btn_faq">FAQ</a>
+			<a href="./index.html" class="home"><i class="icon ico_home"></i></a>
+
+			<!-- 
+			20180312 수정
+			Step 정보 수정
+			기존 숫자형태에서 페이지별 타이틀로
+
+			현재 페이지는 active 클래스
+			지난 페이지는 comp 클래스
+
+			예)
+					<li class="active"><span>고객정보 확인</span></li>
+					<li><span>신청내역조회</span></li>
+
+					<li class="comp"><span>고객정보 확인</span></li>
+					<li class="active"><span>신청내역조회</span></li>
+			-->
+			<div class="step">
+				<ul>
+					<li class="active"><span>고객정보 확인</span></li>
+					<li><span>신청내역조회</span></li>
+					<li><span>단말변경</span></li>
+					<li><span>변경요청</span></li>
+				</ul>
+			</div>
+			<!-- //Progress -->
+		</div>
+	</div><!-- //Header -->
+
+	<div id="container">
+		<div id="content">
+
+			<div class="accordion">
+				<div class="item show">
+					<h1 class="item_tit">약관동의</h1>
+					<div class="item_con">
+
+						<!-- 
+						input의 ID값과  label 의 for 값이 같아야 함.
+
+						20180322 약관동의 수정
+						-->
+						<div class="termsbox">
+							<ul>
+								<li>
+									<input type="checkbox" id="chkall" value="" data-chk-all /><label for="chkall">전체 동의<span>(선택사항 포함)</span></label>
+								</li>
+								<!-- 
+								20180405 작업
+								LPWA 이용약관 동의 추가
+								-->
+								<li>
+									<input type="checkbox" id="chk08" value="" data-chk-list /><label for="chk08">LPWA 이용약관 동의<span class="badge active">필수</span></label>
+									<button type="button" class="terms08">내용보기</button>
+								</li>
+								<li>
+									<input type="checkbox" id="chk01" value="" data-chk-list /><label for="chk01">개인정보·개인위치정보 수집·이용 동의<span class="badge active">필수</span></label>
+									<button type="button" class="terms01">내용보기</button>
+								</li>
+								<li>
+									<input type="checkbox" id="chk02" value="" data-chk-list /><label for="chk02">개인정보 제3자 제공 동의<span class="badge active">필수</span></label>
+									<button type="button" class="terms02">내용보기</button>
+								</li>
+								<!-- 
+								20180323 수정
+								고객사 서버의 장애로 인한 데이터 재요청시 데이터 제공 기간의 제한 내용 삭제
+								-->
+								<!-- 
+								<li>
+									<input type="checkbox" id="chk03" value="" data-chk-list /><label for="chk03">고객사 서버의 장애로 인한 데이터 재요청시 데이터 제공 기간의 제한<span class="badge active">필수</span></label>
+									<button type="button" class="terms03">내용보기</button>
+								</li>
+								 -->
+								<!-- 
+								20180307 수정
+								약관동의 선택항목 삭제
+								-->
+							</ul>
+						</div>
+
+						<div class="graybox terms_desc">
+							<p><i class="icon ico_point"></i>고객님의 정보는 항상 암호화 처리되어 본인인증으로만 사용하며 보관하지 않습니다.</p>
+						</div>
+
+					</div>
+				</div>
+				<!-- //약관동의 -->
+
+				<div class="item">
+					<h1 class="item_tit">실명확인</h1>
+					<div class="item_con">
+						<div class="article">
+							<h2 class="article_tit"><label for="name">이름</label></h2>
+
+							<input type="text" id="name" value="" placeholder="홍길동" />
+						</div>
+						<!-- //이름 -->
+
+						<div class="article">
+							<h2 class="article_tit"><label for="jumin">주민등록번호</label></h2>
+
+							<!-- 
+							<input type="password" id="jumin" value="" class="k_validator" maxlength="13" placeholder="주민등록번호 13자리" />
+							 -->
+
+							<!--
+							20180312 보류
+							주민번호 앞 6자리, 뒤 7자리 나누기
+							-->
+							<div class="expbox">
+								<div>
+									<input type="text" id="jumin" value="" class="k_validator" maxlength="6" placeholder="주민등록번호 앞 6자리">
+								</div>
+								<div><input type="password" value="" class="k_validator" maxlength="7" placeholder="주민등록번호 뒤 7자리"></div>
+							</div>
+						</div>
+						<!-- //주민등록번호 -->
+
+						<button type="button" class="btn_ext" disabled="disabled">실명확인</button>
+						<!-- 
+						활성화 버튼
+						<button type="button" class="btn_ext active">실명확인</button>
+						-->
+
+					</div>
+				</div>
+				<!-- //실명확인 -->
+
+				<div class="item">
+					<h1 class="item_tit">본인인증<a href="#" class="btn_cert"><i class="icon ico_check"></i></a></h1>
+
+					<div class="item_con">
+						<div class="article">
+							<h2 class="article_tit"><label for="name02">이름</label></h2>
+
+							<input type="text" id="name02" value="홍길동" placeholder="홍길동" readonly="readonly" />
+						</div>
+						<!-- //이름 -->
+
+						<div class="article">
+							<h2 class="article_tit"><label for="birth">생년월일</label></h2>
+
+							<div class="datebox">
+								<div class="year">
+									<input type="tel" id="birth" value="1985" class="k_validator" maxlength="4" placeholder="YYYY 년" readonly="readonly" />
+								</div>
+
+								<div class="month">
+									<input type="tel" value="01" class="k_validator" maxlength="2" placeholder="MM 월" readonly="readonly" />
+								</div>
+								<div class="day">
+									<input type="tel" value="02" class="k_validator" maxlength="2" placeholder="DD 일" readonly="readonly" />
+								</div>
+							</div>
+						</div>
+						<!-- //생년월일 -->
+
+						<div class="article">
+							<h2 class="article_tit"><label for="card_com">카드회사</label></h2>
+
+							<select id="card_com" class="placeholder">
+								<option value="">카드사를 선택해주세요.</option>
+								<option value="">####01</option>
+								<option value="">####02</option>
+								<option value="">####03</option>
+								<option value="">####04</option>
+								<option value="">####05</option>
+							</select>
+						</div>
+						<!-- //카드회사 -->
+
+						<div class="article">
+							<h2 class="article_tit"><label for="cardNum1">카드번호</label></h2>
+
+							<div class="cardbox">
+								<div><input type="tel" name="cardNum1" id="cardNum1" value="" class="ta_c k_validator" oninput="nextCardNumFocus(this);" maxlength="4" placeholder="0000" /></div>
+								<div><input type="password" name="cardNum2" id="cardNum2" value="" class="ta_c k_validator" oninput="nextCardNumFocus(this);" maxlength="4" placeholder="0000" /></div>
+								<div><input type="password" name="cardNum3" id="cardNum3" value="" class="ta_c k_validator" oninput="nextCardNumFocus(this);" maxlength="4" placeholder="0000" /></div>
+								<div><input type="tel" name="cardNum4" id="cardNum4" value="" class="ta_c k_validator" oninput="nextCardNumFocus(this);" maxlength="4" placeholder="0000" /></div>
+							</div>
+						</div>
+						<!-- //카드번호 -->
+
+						<div class="article">
+							<!-- 
+							20180307 수정
+							유효기간(월/년) 예시 추가
+							-->
+							<h2 class="article_tit"><label for="exp">유효기간(월/년)</label> <span>예) 2022년 7월인 경우 월 07, 년 18 입력</span></h2>
+
+							<div class="expbox">
+								<div><input type="tel" id="exp" value="" class="k_validator" maxlength="2" placeholder="MM 월" /></div>
+								<div><input type="tel" value="" class="k_validator" maxlength="2" placeholder="YY 년" /></div>
+							</div>
+						</div>
+						<!-- //유효기간(월/년) -->
+
+						<!-- 
+						20180307 수정
+						카드비밀번호 -> 카드비밀번호(앞 2자리) 로 변경
+						-->
+						<div class="article">
+							<h2 class="article_tit"><label for="card_pwd">카드비밀번호(앞 2자리)</label></h2>
+
+							<!-- 
+							20180305
+							카드 비번 ** 추가
+							-->
+							<input type="password" id="card_pwd" value="" class="k_validator" maxlength="2" placeholder="비밀번호 앞 2자리" />
+						</div>
+						<!-- //카드비밀번호 -->
+
+						<button type="button" class="btn_ext" disabled="disabled">본인인증 확인</button>
+						<!-- 
+						활성화 버튼
+						<button type="button" class="btn_ext active">본인인증 확인</button>
+						-->
+					</div>
+
+				</div>
+				<!-- //본인인증 -->
+			</div>
+			<!-- //Accordion -->
+
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+
+	<!-- 
+	20180320 수정
+	하단 버튼 고정
+	-->
+	<div class="fixed">
+		<div>
+			<button type="button" class="btn_ext" disabled="disabled">신청내역조회</button>
+			<!-- 
+			활성화 버튼
+			<button type="button" class="btn_ext active">신청내역조회</button>
+			-->
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

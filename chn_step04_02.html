@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>SKT IoT(Cat.M1) 온라인 신청</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<a href="#" class="back"><i class="icon ico_back"></i></a>
+
+			<!-- 
+			20180312 수정
+			페이지 타이틀 변경
+
+			신규가입일때는 신규가입
+			단말변경/선납연장일때는 변경/연장
+
+			20180323 수정
+			변경/연장 -> 단말변경
+			-->
+			<strong>단말변경</strong>
+
+			<a href="#" class="btn_faq" id="btn_faq">FAQ</a>
+			<a href="./index.html" class="home"><i class="icon ico_home"></i></a>
+
+			<!-- 
+			20180312 수정
+			Step 정보 수정
+			기존 숫자형태에서 페이지별 타이틀로
+
+			현재 페이지는 active 클래스
+			지난 페이지는 comp 클래스
+
+			예)
+					<li class="active"><span>고객정보 확인</span></li>
+					<li><span>신청내역조회</span></li>
+
+					<li class="comp"><span>고객정보 확인</span></li>
+					<li class="active"><span>신청내역조회</span></li>
+			-->
+			<div class="step">
+				<ul>
+					<li class="comp"><span>고객정보 확인</span></li>
+					<li class="comp"><span>신청내역조회</span></li>
+					<li class="comp"><span>선납연장</span></li>
+					<li class="active"><span>결제요청</span></li>
+				</ul>
+			</div>
+			<!-- //Progress -->
+		</div>
+	</div><!-- //Header -->
+
+	<div id="container">
+		<div id="content">
+
+			<div class="article">
+				<div class="comp_desc">
+					<i class="icon ico_comp_pay"></i>
+
+					<p>아래의 내용으로 선납연장 결제요청을 원하실 경우 <br>결제요청 버튼을 눌러 완료해 주십시오.</p>
+				</div>
+
+				<!-- 
+				20180307 수정
+				변경전, 변경후 요금제 위에 서비스번호 추가
+				금액 항목 삭제
+				-->
+				<div class="tbl_wrap result">
+					<dl class="info">
+						<dt>변경전</dt>
+						<dd><em>서비스번호</em>########</dd>
+						<dd><em>요금제</em>00000요금제</dd>
+						<dd class="emphasis"><em>현재잔액</em>1,000원</dd>
+					</dl>
+					<dl class="info">
+						<dt>변경후</dt>
+						<dd><em>서비스번호</em>########</dd>
+						<dd><em>요금제</em>00000요금제</dd>
+						<dd class="emphasis"><em>현재잔액</em>69,000원</dd>
+					</dl>
+				</div>
+			</div>
+
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+
+	<div class="fixed">
+		<div>
+			<button type="button" class="btn_ext active">결제요청</button>
+		</div>
+	</div>
+</div>
+</body>
+</html>

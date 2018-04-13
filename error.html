@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<!-- 
+20180320 수정
+title 수정
+SKT IoT(Cat.M1) 온라인개통 서비스 -> SKT IoT(Cat.M1) 온라인 신청
+-->
+<title>SKT IoT(Cat.M1) 온라인 신청</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+<script>
+$(document).ready(function(){
+	$("#error_btn").bind({
+		"click" : function(){
+			document.location = "./";
+		}
+	});
+});
+</script>
+</head>
+<body>
+
+<!-- 
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<a href="#" class="back"><i class="icon ico_back"></i></a>
+
+			<strong>신규가입</strong>
+
+			<a href="#" class="btn_faq" id="btn_faq">FAQ</a>
+			<a href="./index.html" class="home"><i class="icon ico_home"></i></a>
+
+			<div class="step">
+				<ul>
+					<li class="active"><span>단말기등록</span></li>
+					<li><span>고객정보등록</span></li>
+					<li><span>신청서작성</span></li>
+					<li><span>가입신청</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="container">
+	......
+	</div>
+</div>
+-->
+
+<!-- 
+작업 방식에 따라 
+
+<div class="modal_bg alert_msg" style="display:block">
+
+style="display:block" 은 놔두거나 제거하시면 됩니다.
+-->
+<div class="modal_bg alert_msg" style="display:block">
+	<div class="dialog_wrap">
+		<div class="dialog_inner">
+			<div class="modal_content">
+				<div class="txtbox">
+					<div>통신에 문제가 발생했습니다.<br>홈화면으로 이동합니다. </div>
+				</div>
+				<div class="btnbox"><button type="button" class="btn" id="error_btn">확인</button></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

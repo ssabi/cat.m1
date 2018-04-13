@@ -1,0 +1,143 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>SKT IoT(Cat.M1) 온라인 신청</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+</head>
+<body>
+ -->
+<div class="modal" id="modal" style="max-width:648px">
+	<div class="modal_header">
+		<strong>FAQ</strong>
+		<a href="#" class="modal_close">닫기</a>
+	</div>
+	<div class="modal_content">
+		<div>
+			<!-- 내용시작 -->
+
+			<div class="accordion faq">
+				<!-- 
+				20180312 수정
+				FAQ 첫번째 항목 default 닫힘 처리
+				show 클래스 삭제
+				-->
+				<div class="item">
+					<h1 class="item_tit">어떤 단말이 자가개통으로 개통 가능한가요?</h1>
+					<div class="item_con">
+						<div class="answer">
+							고객이 온라인/오프라인에서 단말을 구매한 후 휴대폰을 활용해서 Self 개통가능한 단말기는 Cat.M1 N/W을 활용하는 IoT 일부 단말기만 가능합니다.<br>
+							’18.4월 현재 IoT 블랙박스만 자가개통 가능하고, ’18년 6월까지 Human Tracking 단말(삼성전자), IoT 혈당측정기(아이센스) 단말이 가능할 예정입니다.<br>
+							그 외 단말기는 M2M을 취급하는 SKT 특수대리점에서 개통이 가능합니다.<br>
+							특수대리점 위치는 당사 법인고객센터(1500-1111)을 통해 확인할 수 있습니다.
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<h1 class="item_tit">자가개통 단말의 요금제는 어떤것이 있나요?</h1>
+					<div class="item_con">
+						<div class="answer">
+							IoT 블랙박스 서비스는 데이터 사용량을 고려하여, 별도의 전용요금제를 운영하고 있습니다. 월 2천원 수준에 매월 약 50M를 이용할수 있습니다.<br>
+							기타 단말은 1천원(5MB), 2천원(15MB), 3천원(30MB), 4천원(50MB), 5천원(100MB)입니다.<br>
+							각 단말 및 서비스에 적합하도록 권유하는 요금제가 상이하오니 단말에 동봉된 설명자료 참조하시기 바랍니다.
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<h1 class="item_tit">휴대폰을 통해서 자가개통 완료처리 했는데.. 단말에서 어떻게 확인할 수 있나요?</h1>
+					<div class="item_con">
+						<div class="answer">
+							IoT Cat.M1 단말의 서비스 App 및 통신개통 처리가 완료된 후 IoT 단말을 껐다 켜면(약 5분간 대기) IoT 단말기가 개통완료 됩니다.<br>
+							IoT 단말기를 휴대폰 App을 활용하여 Test 하시면 개통 및 동작여부를 본인 스스로 확인할 수 있습니다.<br>
+							- 블랙박스 단말은  주차위치 확인(사진) 등 을 활용하시면 단말기 개통/동작여부 바로 확인가능 합니다.
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<h1 class="item_tit">개통과정중 문의 또는 오류 발생시 전화번호는 ?</h1>
+					<div class="item_con">
+						<div class="answer">
+							각 IoT 단말기 서비스 App 가입 또는 SKT 회선 개통과정에서 오류 발생시 아래 연락처에 문의하시면 됩니다.<br>
+							- IoT 블랙박스 고객센터 : 0000-0000<br>
+							- IoT 혈당측정기 고객센터 : 000-0000<br>
+							- 삼성 Tracker 개통센터 : 000-0000<br>
+							- 콘텔라 고객센터 : 1522-1682
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<h1 class="item_tit">서비스 App만 가입해도 서비스가 되지 않나요?</h1>
+					<div class="item_con">
+						<div class="answer">
+							고객님께서 사용하시는 서비스는 통신이 연결된 단말기에서 전달한 정보를 휴대폰을 통해 확인하는 서비스로 IoT 단말기가 개통(네트웍에 연동)되어야 사용 가능합니다.<br>
+							서비스 App의 서비스 가입 &amp; 단말기 개통처리 모두 완료되어야.. 서비스가 가능하오니 참조하시기 바랍니다.
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<h1 class="item_tit">약정기간을 가입하고 약정기간내 해지할 경우 페널티가 있나요?</h1>
+					<div class="item_con">
+						<div class="answer">
+							’18년 4월 현재 자가개통 관련 별도의 약정기간은 없습니다. ’18년 6월기준 약정기간 적용할 예정이며.. 고객님께서는 약정에 따른 별도의 지원금을 받으시기 때문에 약정기간내 해지하실 경우.. 지원금액 * 남은기간/전체기간에 해당하는 금액을 위약금으로 부담할 수 있습니다.
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<h1 class="item_tit">Online을 통해 단말기를 변경할때 기존 USIM 도 변경되나요?</h1>
+					<div class="item_con">
+						<div class="answer">
+							고객님께서 사용하시는 단말기의 특성에따라 USIM 변경여부가 달라질 수 있습니다.<br>
+							’18.4월 현재 단말기와 USIM이 일체형인 단말(블랙박스, IoT 혈당측정기, 삼성 Tracker)은 고객님께서 단말 변경시 USIM이 자동으로 변경/등록됩니다.<br>
+							단말기와 USIM을 별도로 사용하는 단말(탈착식 USIM을 사용하는 단말)은 기존 USIM을 변경된 단말에 다시 사용하시면 됩니다.<br>
+							- USIM을 변경하실 경우 가까운 대리점에 방문하시어 처리하셔야 합니다.
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<h1 class="item_tit">SKT 이동전화로 통합청구하지 않고 별도로 분리된 청구서를 받고싶어요.</h1>
+					<div class="item_con">
+						<div class="answer">
+							스마트폰을 통해 간편하게 온라인 개통하기위해 SKT 이동전화를 이용하는 고객은 기존 이동전화에 통합청구만 가능하도록 설정되어 있습니다.<br>
+							통합청구를 해지하고 별도로 분리된 청구서를 받으려면 온라인 개통 완료후 당사 고객센터에 연락(휴대폰에서 114)하셔서 청구정보를 분리/신청하시면 처리 가능합니다.
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<h1 class="item_tit">꼭 이메일 주소를 입력해야 하나요?</h1>
+					<div class="item_con">
+						<div class="answer">
+							고객님께 전달하는 청구 정보는 이메일을 통해서 발송됩니다. 따라서 이메일 주소를 꼭 입력해야 합니다.
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- //내용끝 -->
+		</div>
+	</div>
+</div>
+<script>
+accordian();
+</script>
+<!-- 
+</body>
+</html>
+ -->

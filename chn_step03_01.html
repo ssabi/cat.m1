@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>SKT IoT(Cat.M1) 온라인 신청</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<a href="#" class="back"><i class="icon ico_back"></i></a>
+
+			<!-- 
+			20180312 수정
+			페이지 타이틀 변경
+
+			신규가입일때는 신규가입
+			단말변경/선납연장일때는 변경/연장
+
+			20180323 수정
+			변경/연장 -> 단말변경
+			-->
+			<strong>단말변경</strong>
+
+			<a href="#" class="btn_faq" id="btn_faq">FAQ</a>
+			<a href="./index.html" class="home"><i class="icon ico_home"></i></a>
+
+			<!-- 
+			20180312 수정
+			Step 정보 수정
+			기존 숫자형태에서 페이지별 타이틀로
+
+			현재 페이지는 active 클래스
+			지난 페이지는 comp 클래스
+
+			예)
+					<li class="active"><span>고객정보 확인</span></li>
+					<li><span>신청내역조회</span></li>
+
+					<li class="comp"><span>고객정보 확인</span></li>
+					<li class="active"><span>신청내역조회</span></li>
+			-->
+			<div class="step">
+				<ul>
+					<li class="comp"><span>고객정보 확인</span></li>
+					<li class="comp"><span>신청내역조회</span></li>
+					<li class="active"><span>단말변경</span></li>
+					<li><span>변경요청</span></li>
+				</ul>
+			</div>
+			<!-- //Progress -->
+		</div>
+	</div><!-- //Header -->
+
+	<div id="container">
+		<div id="content">
+
+			<div class="article">
+				<h1 class="article_tit">단말기</h1>
+
+				<input type="text" value="Cat.M1 단말매칭 정보 끌고옴" readonly="readonly" placeholder="" />
+			</div>
+			<!-- //단말기 -->
+
+			<div class="article">
+				<!-- 
+				20180321 수정
+				IMEI 정보란? 추가
+				-->
+				<h1 class="article_tit">
+					<label for="article02">IMEI 정보</label>
+					<span class="pos"><a href="#" id="btn_info_imei"><i class="icon ico_point off"></i>IMEI 정보란?</a></span>
+
+					<div class="guide_imei">
+						<div>
+							<a href="#" class="guide_close">닫기</a>
+
+							<span class="img"><img src="./res/img/common/imei.png" alt=""></span>
+							<p>IMEI 번호 <strong>15자리</strong>를 입력해 주십시오.</p>
+						</div>
+					</div>
+				</h1>
+
+				<div class="extbox">
+					<input type="tel" id="article02" value="" maxlength="15" class="type_number" placeholder="단말기 식별번호 15자리" />
+					<button type="button" class="btn active">확인</button>
+				</div>
+
+				<!-- 
+				20180307 수정
+				USIM분리형 단말의 경우에만 문구 노출
+				-->
+				<p class="point"><i class="icon ico_point"></i>단말변경 후 새로운 단말기에 기존 USIM카드를 장착하여 사용하시기 바랍니다 </p>
+
+			</div>
+			<!-- //IMEI 정보 -->
+
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+
+
+	<div class="fixed">
+		<div>
+			<!-- 
+			<button type="button" class="btn_ext" disabled="disabled">다음</button>
+			-->
+			<!-- 
+			활성화 버튼
+			-->
+			<button type="button" class="btn_ext active">다음</button>
+
+		</div>
+	</div>
+</div>
+</body>
+</html>

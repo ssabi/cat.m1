@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>Publisher Guide</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+<style>
+html,body{height:auto}
+body{background-color:#f9f9f9;padding:40px 0 60px}
+.pg_ct{width:1024px;margin:0 auto;padding:20px;border-radius:10px;background-color:#fff;overflow:hidden;box-shadow:0 0 1px rgba(0, 0, 0, 0.3)}
+.pg_ct:after{content:'';clear:both}
+.pg_contents{float:left;width:784px;border-radius:10px 0 0 10px}
+.pg_ct nav{float:left;width:160px;border-radius:0 10px 10px 0}
+.pg_ct nav ul{position:fixed;top:60px}
+.pg_ct nav li{padding-left:20px;margin-bottom:20px}
+.pg_section{margin-bottom:10px}
+.pg_section h3{font-size:13px}
+.pg_section .row_box{padding:10px;border:1px dashed #ccc}
+.pg_section .row_box + .row_box{margin-top:10px}
+h1{font-size:24px;margin-bottom:10px;font-weight:normal}
+h2{display:block;padding-top:30px;font-size:16px;color:#555;margin-bottom:10px;font-weight:normal}
+h3{font-size:13px;margin-bottom:30px;font-weight:normal}
+table.pg_type1{width:100%;text-align:left;font-size:12px}
+table.pg_type1>tbody>tr:nth-of-type(odd){background-color:#f9f9f9}
+table.pg_type1 thead th{padding:8px;border:1px solid #bbb;text-align:center}
+table.pg_type1 tbody th,
+table.pg_type1 tbody td{padding:8px;border:1px solid #ddd}
+table.pg_type1t tbody th.header{background-color:#fff;text-align:center}
+
+code{font-family:'Malgun Gothic', '맑은고딕', Dotum, '돋움', Sans-serif}
+
+.accordion h1{margin:0}
+
+.codebox{margin-top:10px;padding:20px;background-color:#d5d5d5}
+
+.jsfiddle_iframe{width:100%;border:0}
+</style>
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+<script>
+$(document).ready(function(){
+	$(".service").bind({
+		"change"  : function(){
+			var val = $(this).find("option:selected").text();
+			//console.log(val);
+			$(".hpinbox").removeClass("show");
+
+			var index = $(this).find("option").index($(this).find("option:selected"));
+			//console.log(index);
+
+			if(index == 0 || index == 1){
+				$(".hpinbox").eq(0).addClass("show");
+			}else{
+				$(".hpinbox").eq(1).addClass("show");
+			}
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div id="pg_ct" class="pg_ct">
+	<div class="pg_contents">
+		<h1>가이드</h1>
+
+		<div class="pg_section">
+			<h2 id="folders">폴더구조</h2>
+
+			<table class="pg_type1">
+				<colgroup>
+					<col style="width:200px;"/>
+					<col />
+					<col />
+				</colgroup>
+				<thead>
+				<tr>
+					<th>경로</th>
+					<th>하위경로</th>
+					<th>설명</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>/</td>
+					<td></td>
+					<td>퍼블리싱 루트디렉토리</td>
+				</tr>
+				<tr>
+					<td>/res/js/libs</td>
+					<td>/</td>
+					<td>라이브러리 폴더</td>
+				</tr>
+				<tr>
+					<td>/res/js</td>
+					<td>/</td>
+					<td>UI 핸들링</td>
+				</tr>
+				<tr>
+					<td>/res/img</td>
+					<td>/</td>
+					<td>이미지 폴더</td>
+				</tr>
+				<tr>
+					<td>/res/img</td>
+					<td>/common</td>
+					<td>공통 이미지</td>
+				</tr>
+				<tr>
+					<td>/res/css</td>
+					<td>/</td>
+					<td>css 파일</td>
+				</tr>
+				<tr>
+					<td>/res/font</td>
+					<td>/</td>
+					<td>웹폰트 파일</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="pg_section">
+			<h2 id="tab">탭</h2>
+
+			<table class="pg_type1">
+				<colgroup>
+					<col style="width:150px;"/>
+					<col style="width:150px;"/>
+					<col style=""/>
+				</colgroup>
+				<thead>
+				<tr>
+					<th>선택자</th>
+					<th>종류</th>
+					<th>형상</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th class="header">div.chkbox</th>
+					<td>기본</td>
+					<td>
+						<div class="chkbox">
+							<div class="rd_label">
+								<input type="radio" name="type01" id="chk01" checked="checked" />
+								<label for="chk01"><span><span>카드</span></span></label>
+							</div>
+							<div class="rd_label">
+								<input type="radio" name="type01" id="chk02" />
+								<label for="chk02"><span><span>은행</span></span></label>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">div.chkbox.cols3</th>
+					<td>확장</td>
+					<td>
+						<div class="chkbox cols3">
+							<div class="rd_label">
+								<input type="radio" name="type02" id="chk03" value="" data-type="giro" checked="checked" />
+								<label for="chk03"><span><span>지로</span></span></label>
+							</div>
+							<div class="rd_label">
+								<input type="radio" name="type02" id="chk04" value="" data-type="card" />
+								<label for="chk04"><span><span>카드</span></span></label>
+							</div>
+							<div class="rd_label">
+								<input type="radio" name="type02" id="chk05" value="" data-type="bank" />
+								<label for="chk05"><span><span>은행</span></span></label>
+							</div>
+						</div>
+					</td>
+				</tr>
+				</tbody> 
+			</table>
+		</div>
+
+		<div class="pg_section">
+			<h2 id="buttons">버튼</h2>
+
+			<table class="pg_type1">
+				<colgroup>
+					<col style="width:150px;"/>
+					<col style="width:150px;"/>
+					<col style=""/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>선택자</th>
+						<th>종류</th>
+						<th>형상</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th class="header">.btn</th>
+					<td>일반</td>
+					<td>
+						<button type="button" class="btn" disabled="disabled">버튼명</button>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.btn.active</th>
+					<td>일반(강조)</td>
+					<td>
+						<button type="button" class="btn">버튼명</button>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.btn_ext</th>
+					<td>다음</td>
+					<td>
+						<button type="button" class="btn_ext" disabled="disabled">다음</button>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.btn_ext.active</th>
+					<td>다음(강조)</td>
+					<td>
+						<button type="button" class="btn_ext active">다음</button>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.accordion > .btn_ext</th>
+					<td>다음</td>
+					<td>
+						<div class="accordion">
+							<div class="item">
+								<button type="button" class="btn_ext">다음</button>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.accordion > .btn_ext</th>
+					<td>다음(강조)</td>
+					<td>
+						<div class="accordion">
+							<div class="item">
+								<button type="button" class="btn_ext active">다음</button>
+							</div>
+						</div>
+					</td>
+				</tr>
+				</tbody> 
+			</table>
+		</div>
+
+		<div class="pg_section">
+			<h2 id="icons">아이콘</h2>
+
+			<table class="pg_type1">
+				<colgroup>
+					<col style="width:150px;"/>
+					<col style="width:150px;"/>
+					<col style=""/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>선택자</th>
+						<th>종류</th>
+						<th>형상</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th class="header">.ico_new</th>
+					<td>신규</td>
+					<td style="background-color:#fff">
+						<i class="icon ico_new"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_change</th>
+					<td>변경</td>
+					<td>
+						<i class="icon ico_change"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_back</th>
+					<td>이전(Back)</td>
+					<td style="background-color:#fff">
+						<i class="icon ico_back"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_home</th>
+					<td>HOME</td>
+					<td>
+						<i class="icon ico_home"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_point</th>
+					<td>참조</td>
+					<td style="background-color:#fff">
+						<i class="icon ico_point"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_point.off</th>
+					<td>참조</td>
+					<td>
+						<i class="icon ico_point off"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_check</th>
+					<td>참조</td>
+					<td style="background-color:#fff">
+						<i class="icon ico_check"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_check.on</th>
+					<td>참조</td>
+					<td>
+						<i class="icon ico_check on"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_comp</th>
+					<td>완료</td>
+					<td style="background-color:#fff">
+						<i class="icon ico_comp"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_comp_change</th>
+					<td>변경</td>
+					<td>
+						<i class="icon ico_comp_change"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_comp_pay</th>
+					<td>결제</td>
+					<td style="background-color:#fff">
+						<i class="icon ico_comp_pay"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_certification</th>
+					<td>인증</td>
+					<td>
+						<i class="icon ico_certification"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_card</th>
+					<td>카드</td>
+					<td style="background-color:#fff">
+						<i class="icon ico_card"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.ico_tel</th>
+					<td>전화</td>
+					<td>
+						<i class="icon ico_tel"></i>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">.id_card</th>
+					<td>신분증</td>
+					<td style="background-color:#fff"><i class="icon id_card"></i></td>
+				</tr>
+				<tr>
+					<th class="header">.credit_card</th>
+					<td>신용카드</td>
+					<td><i class="icon credit_card"></i></td>
+				</tr>
+				<tr>
+					<th class="header">.ico_block01</th>
+					<td>서비스 이용</td>
+					<td style="background-color:#fff"><i class="icon ico_block01"></i></td>
+				</tr>
+				<tr>
+					<th class="header">.ico_block02</th>
+					<td>서비스 정기 점검</td>
+					<td><i class="icon ico_block02"></i></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="pg_section">
+			<h2 id="form">폼요소</h2>
+
+			<table class="pg_type1">
+				<colgroup>
+					<col style="width:150px;"/>
+					<col style="width:150px;"/>
+					<col style=""/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>선택자</th>
+						<th>종류</th>
+						<th>형상</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th class="header">select</th>
+					<td>select</td>
+					<td style="background-color:#fff">
+						<select class="placeholder">
+							<option value="">선택</option>
+							<option value="">######01</option>
+							<option value="">######02</option>
+							<option value="">######03</option>
+							<option value="">######04</option>
+							<option value="">######05</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th class="header">input</th>
+					<td>input</td>
+					<td>
+						<input type="text" value="" placeholder="" />
+					</td>
+				</tr>
+				</tbody> 
+			</table>
+		</div>
+
+		<div class="pg_section">
+			<h2 id="table_css">텍스트 정렬</h2>
+
+			<table class="pg_type1">
+				<colgroup>
+					<col style="width:150px;"/>
+					<col style="width:150px;"/>
+					<col style=""/>
+				</colgroup>
+				<thead>
+				<tr>
+					<th>부여가능 대상</th>
+					<th>CSS</th>
+					<th>기능</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th class="header">*</th>
+					<td>.ta_l</td>
+					<td class="ta_l">
+					  텍스트 왼쪽 정렬
+					</td>
+				</tr>
+				<tr>
+					<th class="header">*</th>
+					<td>.ta_r</td>
+					<td class="ta_r">
+					  텍스트 오른쪽 정렬
+					</td>
+				</tr>
+				<tr>
+					<th class="header">*</th>
+					<td>.ta_c</td>
+					<td class="ta_c">
+					  텍스트 가운데 정렬
+					</td>
+				</tr>
+				<tr>
+					<th class="header">*</th>
+					<td>.va_t</td>
+					<td class="va_t" style="height:50px">
+					  텍스트 위 정렬
+					</td>
+				</tr>
+				<tr>
+					<th class="header">*</th>
+					<td>.va_m</td>
+					<td class="va_m" style="height:50px">
+					  텍스트 중앙 정렬
+					</td>
+				</tr>
+				<tr>
+					<th class="header">*</th>
+					<td>.va_b</td>
+					<td class="va_b" style="height:50px">
+					  텍스트 아래 정렬
+					</td>
+				</tr>
+				</tbody> 
+			</table>
+		</div>
+
+		<div class="pg_section">
+			<h2 id="contents">컨텐츠</h2>
+
+			<div class="row_box">
+				<h3>.step</h3>
+
+				<div class="step">
+					<ul>
+						<li class="active"><span>1</span></li>
+						<li><span>2</span></li>
+						<li><span>3</span></li>
+						<li><span>4</span></li>
+					</ul>
+				</div>
+				<!-- //Progress -->
+
+				<br>
+
+				<div class="step">
+					<ul>
+						<li class="comp"><span>1</span></li>
+						<li class="active"><span>2</span></li>
+						<li><span>3</span></li>
+						<li><span>4</span></li>
+					</ul>
+				</div>
+				<!-- //Progress -->
+
+				<br>
+
+				<div class="step">
+					<ul>
+						<li class="comp"><span>1</span></li>
+						<li class="comp"><span>2</span></li>
+						<li class="active"><span>3</span></li>
+						<li><span>4</span></li>
+					</ul>
+				</div>
+				<!-- //Progress -->
+
+				<br>
+
+				<div class="step">
+					<ul>
+						<li class="comp"><span>1</span></li>
+						<li class="comp"><span>2</span></li>
+						<li class="comp"><span>3</span></li>
+						<li class="active"><span>4</span></li>
+					</ul>
+				</div>
+				<!-- //Progress -->
+
+				<br>
+
+								<div class="documents">
+					<div>
+						<strong class="doc_tit">IoT Cat.M1 온라인 가입신청서</strong>
+
+						<div class="tbl_wrap">
+							<table class="tbl">
+								<colgroup>
+									<col style="width:38%;" />
+									<col style="width:62%;" />
+								</colgroup>
+								<tbody>
+								<tr>
+									<th scope="row">이름</th>
+									<td>홍길동</td>
+								</tr>
+								<tr>
+									<th scope="row">고객연락처</th>
+									<td>010-1234-5678</td>
+								</tr>
+								<tr>
+									<th scope="row">요금제</th>
+									<td>00000 요금제</td>
+								</tr>
+								<tr>
+									<th scope="row">...</th>
+									<td>...</td>
+								</tr>
+								<tr>
+									<th scope="row">부가서비스</th>
+									<td>&nbsp;</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row_box">
+				<h3>.article</h3>
+
+				<div class="article">
+					<h1 class="article_tit">
+						<label for="article02">IMEI 정보</label>
+						<span class="pos"><a href="#" id="btn_info_imei"><i class="icon ico_point off"></i>IMEI 정보란?</a></span>
+
+						<div class="guide_imei">
+							<div>
+								<a href="#" class="guide_close">닫기</a>
+
+								<span class="img"><img src="./res/img/common/imei.png" alt=""></span>
+								<p>IMEI 번호 <strong>15자리</strong>를 입력해 주십시오.</p>
+							</div>
+						</div>
+					</h1>
+
+					<div class="extbox">
+						<input type="tel" id="article02" value="" maxlength="15" class="type_number" placeholder="단말기 식별번호 15자리" />
+						<button type="button" class="btn active">확인</button>
+					</div>
+				</div>
+				<!-- //IMEI 정보 -->
+
+				<div class="article">
+					<h1 class="article_tit">단말기</h1>
+
+					<input type="text" value="" readonly="readonly" placeholder="IMEI 정보 확인 시 자동 입력됩니다." />
+				</div>
+				<!-- //단말기 -->
+
+				<div class="article">
+					<h1 class="article_tit"><label for="article03">요금제</label></h1>
+
+					<select id="article03" class="placeholder">
+						<option value="">요금제를 선택해주세요</option>
+						<option value="">###01</option>
+						<option value="">###02</option>
+						<option value="">###03</option>
+						<option value="">###04</option>
+						<option value="">###05</option>
+						<option value="">###06</option>
+					</select>
+				</div>
+				<!-- //요금제 -->
+
+				<div class="article">
+					<h1 class="article_tit">금액(VAT포함)</h1>
+
+					<div class="pay">
+						<input type="text" class="ta_r" value="680,000" readonly="readonly" placeholder="" />
+						<span>원</span>
+					</div>
+				</div>
+				<!-- //금액 -->
+
+				<div class="article">
+					<h1 class="article_tit">현재잔액</h1>
+
+					<div class="pay">
+						<input type="text" class="pay ta_r" value="1,000" readonly="readonly" placeholder="" />
+						<span>원</span>
+					</div>
+				</div>
+				<!-- //선납잔액 -->
+
+				<div class="article">
+					<h1 class="article_tit">신규충전금액</h1>
+
+					<div class="pay">
+						<input type="text" class="pay emphasis ta_r" value="680,000" readonly="readonly" placeholder="" />
+						<span>원</span>
+					</div>
+				</div>
+				<!-- //충전금액 -->
+
+				<div class="article">
+					<h2 class="article_tit"><label for="id_drive">면허번호</label></h2>
+
+					<div class="drive_license">
+						<select id="id_drive" class="placeholder">
+							<option value="">##</option>
+							<option value="">#1</option>
+							<option value="">#2</option>
+							<option value="">#3</option>
+							<option value="">#4</option>
+							<option value="">#5</option>
+						</select>
+
+						<div class="drive_num">
+							<div>
+								<p><input type="text" class="k_validator" value="" /></p>
+								<p><input type="text" class="k_validator" value="" /></p>
+								<p><input type="text" class="k_validator" value="" /></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //면허번호 -->
+
+				<div class="article">
+					<h2 class="article_tit"><label for="date">발급일자</label></h2>
+
+					<div class="datebox">
+						<div class="year">
+							<input type="tel" id="date" value="" class="k_validator" maxlength="4" placeholder="YYYY 년" />
+						</div>
+
+						<div class="month">
+							<input type="tel" value="" class="k_validator" maxlength="2" placeholder="MM 월" />
+						</div>
+						<div class="day">
+							<input type="tel" value="" class="k_validator" maxlength="2" placeholder="DD 일" />
+						</div>
+					</div>
+				</div>
+				<!-- //발급일자 -->
+
+				<div class="article">
+					<h2 class="article_tit"><label for="card_num">카드번호</label></h2>
+
+					<div class="cardbox">
+						<div><input type="tel" id="card_num" value="" class="ta_c k_validator" maxlength="4" placeholder="0000" /></div>
+						<div><input type="password" value="" class="ta_c k_validator" maxlength="4" placeholder="0000" /></div>
+						<div><input type="password" value="" class="ta_c k_validator" maxlength="4" placeholder="0000" /></div>
+						<div><input type="tel" value="" class="ta_c k_validator" maxlength="4" placeholder="0000" /></div>
+					</div>
+				</div>
+				<!-- //카드번호 -->
+
+				<div class="article">
+					<h2 class="article_tit"><label for="exp">유효기간(월/년)</label> <span>예) 2022년 7월인 경우 월 07, 년 18 입력</span></h2>
+
+					<div class="expbox">
+						<div><input type="tel" id="exp" value="" class="k_validator" maxlength="2" placeholder="MM 월" /></div>
+						<div><input type="tel" value="" class="k_validator" maxlength="2" placeholder="YY 년" /></div>
+					</div>
+				</div>
+				<!-- //유효기간(월/년) -->
+
+				<div class="article">
+					<h2 class="article_tit"><label for="service">휴대폰번호</label></h2>
+
+					<div class="hpbox ext">
+						<div>
+							<select id="service" class="service">
+								<option value="">통신사</option>
+								<option value="">SKT</option>
+								<option value="">SKT 외</option>
+							</select>
+						</div>
+
+						<div class="hpinbox show">
+							<select>
+								<option value="">#####01</option>
+								<option value="">#####02</option>
+								<option value="">#####03</option>
+								<option value="">#####04</option>
+							</select>
+						</div>
+
+						<div class="hpinbox">
+							<div>
+								<select>
+									<option value="">010</option>
+									<option value="">011</option>
+									<option value="">016</option>
+									<option value="">017</option>
+								</select>
+							</div>
+
+							<div>
+								<input type="tel" value="" maxlength="8" class="k_validator" placeholder="'-'제외하고 입력" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //휴대폰번호 -->
+
+				<div class="article">
+					<h2 class="article_tit">주소</h2>
+
+					<div class="extbox">
+						<input type="text" value="" placeholder="주소를 검색해주세요." readonly="readonly" />
+						<button type="button" class="btn" id="btn_addr" onclick="javascript:modal({id:'pop_addr', pageUrl:'pop_addr.html'})">검색</button>
+					</div>
+					<input type="text" value="" placeholder="" readonly="readonly" />
+					<input type="text" value="" placeholder="" readonly="readonly" />
+				</div>
+				<!-- //주소 -->
+
+			</div>
+
+			<div class="row_box">
+				<h3>.accordion</h3>
+
+				<div class="accordion">
+					<div class="item show">
+						<h1 class="item_tit">약관동의</h1>
+						<div class="item_con">
+							약관동의 내용
+						</div>
+					</div>
+					<!-- //약관동의 -->
+					<div class="item">
+						<h1 class="item_tit">실명확인</h1>
+						<div class="item_con">
+							실명확인 내용
+						</div>
+					</div>
+					<!-- //실명확인 -->
+					<div class="item">
+						<h1 class="item_tit">본인인증</h1>
+						<div class="item_con">
+							본인인증 내용
+						</div>
+					</div>
+					<!-- //본인인증 -->
+					<div class="item">
+						<h1 class="item_tit">고객연락처</h1>
+						<div class="item_con">
+							고객연락처 내용
+						</div>
+					</div>
+					<!-- //고객연락처 -->
+				</div>
+			</div>
+			<!-- //Accordion -->
+
+			<div class="row_box">
+				<h3>.list_wrap > .item</h3>
+
+				<div class="list_wrap">
+					<div class="item">
+						<label>
+							<input type="radio" name="list" value="" />
+							<p class="service_num"><span>서비스번호:</span> 012-xxxx-xxxx</p>
+							<p class="date"><span>가입일:</span> 17.03.12</p>
+							<strong><span>단말기:</span> Cat.M1 단말 애칭</strong>
+							<div class="info">
+								<ul>
+									<li><span>IMEI:</span> 123456789012345</li>
+									<li><span>요금제:</span> oooo요금제</li>
+								</ul>
+							</div>
+							<div class="ext_info">
+								<ul>
+									<li><span>금액:</span> 10,000원<span>(12개월 합산)</span></li>
+									<li><span>선납잔액:</span> 1,000원</li>
+								</ul>
+								<p>상세정보<br>Cat.M1단말전용 가장 경제적인 선불 요금제 상품입니다.</p>
+							</div>
+						</label>
+					</div>
+					<!-- //item -->
+
+					<div class="item">
+						<label>
+							<input type="radio" name="list" value="" />
+							<p class="service_num"><span>서비스번호:</span> 012-xxxx-xxxx</p>
+							<p class="date"><span>가입일:</span> 17.03.12</p>
+							<strong><span>단말기:</span> Cat.M1 단말 애칭</strong>
+							<div class="info">
+								<ul>
+									<li><span>IMEI:</span> 123456789012345</li>
+									<li><span>요금제:</span> oooo요금제</li>
+								</ul>
+							</div>
+							<div class="ext_info">
+								<ul>
+									<li><span>금액:</span> 10,000원<span>(12개월 합산)</span></li>
+									<li><span>선납잔액:</span> 1,000원</li>
+								</ul>
+								<p>상세정보<br>Cat.M1단말전용 가장 경제적인 선불 요금제 상품입니다.</p>
+							</div>
+						</label>
+					</div>
+					<!-- //item -->
+
+					<div class="item">
+						<label>
+							<input type="radio" name="list" value="" />
+							<p class="service_num"><span>서비스번호:</span> 012-xxxx-xxxx</p>
+							<p class="date"><span>가입일:</span> 17.03.12</p>
+							<strong><span>단말기:</span> Cat.M1 단말 애칭</strong>
+							<div class="info">
+								<ul>
+									<li><span>IMEI:</span> 123456789012345</li>
+									<li><span>요금제:</span> oooo요금제</li>
+								</ul>
+							</div>
+							<div class="ext_info">
+								<ul>
+									<li><span>금액:</span> 10,000원<span>(12개월 합산)</span></li>
+									<li><span>선납잔액:</span> 1,000원</li>
+								</ul>
+								<p>상세정보<br>Cat.M1단말전용 가장 경제적인 선불 요금제 상품입니다.</p>
+							</div>
+						</label>
+					</div>
+					<!-- //item -->
+				</div>
+			</div>
+
+			<div class="row_box">
+				<h3>.tbl_wrap > .tbl</h3>
+
+				<div class="tbl_wrap">
+					<table class="tbl">
+						<colgroup>
+							<col style="width:38%;">
+							<col style="width:62%;">
+						</colgroup>
+						<tbody>
+						<tr>
+							<th scope="row">이름</th>
+							<td>홍길동</td>
+						</tr>
+						<tr>
+							<th scope="row">이동전화번호</th>
+							<td>010-1234-5678</td>
+						</tr>
+						<tr>
+							<th scope="row">요금제</th>
+							<td>00000 요금제</td>
+						</tr>
+						<tr>
+							<th scope="row">상세정보</th>
+							<td>Cat.M1 단말 전용 가장 경제적인 후불 요금제 상품입니다.</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- //Table -->
+			</div>
+
+			<div class="row_box">
+				<h3>.tbl_wrap.result > .info</h3>
+
+				<div class="tbl_wrap result">
+					<dl class="info">
+						<dt>변경전</dt>
+						<dd><em>서비스번호</em>########</dd>
+						<dd><em>가입일</em>17.04.16</dd>
+						<dd><em>단말기</em>SM-12345</dd>
+						<dd class="emphasis"><em>IMEI</em>123456789012345</dd>
+					</dl>
+					<dl class="info">
+						<dt>변경후</dt>
+						<dd><em>서비스번호</em>########</dd>
+						<dd><em>가입일</em>17.04.16</dd>
+						<dd><em>단말기</em>SM-12345</dd>
+						<dd class="emphasis"><em>IMEI</em>678906789012345</dd>
+					</dl>
+				</div>
+
+				<br><br>
+
+				<div class="tbl_wrap result">
+					<dl class="info">
+						<dt>변경전</dt>
+						<dd><em>서비스번호</em>########</dd>
+						<dd><em>요금제</em>00000요금제</dd>
+						<dd class="emphasis"><em>선납잔액</em>1,000원</dd>
+					</dl>
+					<dl class="info">
+						<dt>변경후</dt>
+						<dd><em>서비스번호</em>########</dd>
+						<dd><em>요금제</em>00000요금제</dd>
+						<dd class="emphasis"><em>선납잔액</em>69,000원</dd>
+					</dl>
+				</div>
+			</div>
+
+			<div class="row_box">
+				<h3>Description</h3>
+
+				<div class="article">
+					<p class="point"><i class="icon ico_point"></i>선택한 요금제의 12개월 합산금액이며, 결제는 본인 인증하신 정보의 카드로 처리됩니다.</p>
+
+					<br>
+
+					<div class="graybox terms_desc">
+						<p><i class="icon ico_point"></i>고객님의 정보는 항상 암호화 처리되어 본인인증으로만 사용하며 보관하지 않습니다.</p>
+					</div>
+
+					<br>
+
+					<div class="graybox terms_desc">
+						<p><i class="icon ico_point off"></i>현재 사용중인 전체 단말기목록 확인이 가능합니다.<br>단말변경/선납연장을 원하실 경우 목록을 선택하세요.</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="pg_section">
+			<h2 id="layer">레이어</h2>
+
+			<div class="row_box">
+				<h3>Dialog</h3>
+
+				<a href="javascript:;" onclick="javascript:alertMsg({msg:'선납연장 결제요청이<br>완료되었습니다.', buttonLabel:'확인', callback : function(){ alertAA()}})">open!</a><br>
+				<script>
+				//메시지 팝업
+				//확인 버튼 클릭 시 이벤트 처리 함수
+				function alertAA(){
+					alert("callback?");
+				}
+				</script>
+
+				<hr />
+				<hr />
+
+				<iframe width="762" height="350" class="jsfiddle_iframe" src="http://jsfiddle.net/wpf136e7/9/embedded/result,html,js,css/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+			</div>
+
+			<div class="row_box">
+				<h3>Dim</h3>
+
+				<a href="javascript:;" onclick="javascript:dim.show()" style="position:relative;z-index:1000;background-color:#fff">DIM show!</a> / <a href="javascript:;" onclick="javascript:dim.hide()" style="position:relative;z-index:1000;background-color:#fff">DIM hide!</a><br>
+
+				<hr />
+				<hr />
+
+				<iframe width="762" height="350" class="jsfiddle_iframe" src="http://jsfiddle.net/ndovoogm/5/embedded/result,html,js,css/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+			</div>
+		</div>
+	</div>
+
+	<nav>
+		<ul>
+			<li><a href="#folders">폴더구조</a></li>
+			<li><a href="#tab">탭</a></li>
+			<li><a href="#buttons">버튼</a></li>
+			<li><a href="#form">폼요소</a></li>
+			<li><a href="#table_css">텍스트 정렬</a></li>
+			<li><a href="#contents">컨텐츠</a></li>
+			<li><a href="#layer">레이어</a></li>
+		</ul>
+	</nav>
+</div>
+</body>
+</html>

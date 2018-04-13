@@ -1,0 +1,206 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>SKT IoT(Cat.M1) 온라인 신청</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+</head>
+<body>
+ -->
+<div class="modal" id="modal" style="max-width:648px">
+	<div class="modal_header">
+		<strong>주소검색</strong>
+		<a href="#" class="modal_close">닫기</a>
+	</div>
+	<div class="modal_content">
+		<div>
+			<!-- 내용시작 -->
+			<div class="tabbox" id="addr_tab">
+				<ul>
+					<li class="on"><a href="#" data-tab-area="part_road"><span><span>도로명주소</span></span></a></li>
+					<li><a href="#" data-tab-area="part_zipcode"><span><span>지번주소</span></span></a></li>
+				</ul>
+			</div>
+			<!-- //Tab -->
+			<div class="sch_area">
+				<form action="#" method="post">
+					<!-- 도로명 주소 검색 폼 -->
+					<div class="part_road">
+						<select>
+							<option value="">시/도 선택</option>
+							<option value="">####01</option>
+							<option value="">####02</option>
+							<option value="">####03</option>
+							<option value="">####04</option>
+							<option value="">####05</option>
+						</select>
+
+						<select>
+							<option value="">시/군/구 선택</option>
+							<option value="">####01</option>
+							<option value="">####02</option>
+							<option value="">####03</option>
+							<option value="">####04</option>
+							<option value="">####05</option>
+						</select>
+
+						<!-- 
+						20180314 수정
+						input type 변경
+						-->
+						<input type="text" value="" placeholder="도로명입력 (예:을지로,불정로 432번길)" />
+
+						<button type="button" class="btn">검색</button>
+
+						<!-- 
+						20180228
+						대표주소 선택 위치변경
+						-->
+						<hr>
+						<!-- 
+						20180208
+						대표주소 선택 항목 추가
+						-->
+						<select>
+							<option value="">검색 후 주소를 선택해 주세요.</option>
+							<option value="">#####01</option>
+							<option value="">#####02</option>
+							<option value="">#####03</option>
+							<option value="">#####04</option>
+							<option value="">#####05</option>
+						</select>
+
+					</div>
+					<!-- //로도명 주소 검색 폼 -->
+
+					<!-- 지번 주소 검색 폼 -->
+					<div class="part_zipcode">
+						<!-- 
+						20180314 수정
+						input type 변경
+						-->
+						<input type="text" value="" placeholder="동/읍/면/리 입력(예:수하동, 화도읍, 장유면)" />
+
+						<button type="button" class="btn">검색</button>
+
+						<!-- 
+						20180228
+						대표주소 선택 위치변경
+						-->
+						<hr>
+						<!-- 
+						20180208
+						대표주소 선택 항목 추가
+						-->
+						<select>
+							<option value="">검색 후 주소를 선택해 주세요.</option>
+							<option value="">#####01</option>
+							<option value="">#####02</option>
+							<option value="">#####03</option>
+							<option value="">#####04</option>
+							<option value="">#####05</option>
+						</select>
+
+						<!-- 
+						20180308 작업
+						지번/건물명 항목, 번지/건물명 검색 버튼 추가
+						-->
+						<div class="hpbox">
+							<div>
+								<select name="indtNum" id="indtNum">
+									<option value="" selected="selected">번지</option>
+									<option value="">건물명</option>
+								</select>
+							</div>
+							<!-- 번지일 경우 -->
+							<div>
+								<div class="expbox">
+									<div><input type="text" value="" placeholder=""></div>
+									<div><input type="text" value="" placeholder=""></div>
+								</div>
+							</div>
+							<!-- //번지일 경우 -->
+							<!-- 건물명일 경우 --><!-- 
+							<div>
+								<input type="text" value="" placeholder="">
+							</div>
+							 --><!-- //건물명일 경우 -->
+						</div>
+
+						<button type="button" class="btn">번지/건물명 검색</button>
+						<!-- //여기까지 -->
+
+					</div>
+					<!-- //지번 주소 검색 폼 -->
+				</form>
+			</div>
+			<!-- //Address Search Area -->
+
+			<!-- 검색 결과 -->
+			<div class="addr_list">
+				<div><a href="javascript:void(0);" class="addr_info">서울 중구 을지로 6 (을지로1가 192-11, 재능빌딩)</a></div>
+				<div><a href="javascript:void(0);" class="addr_info">서울 중구 을지로 12 (을지로1가 50-1, 시청광장 지하쇼핑센터)</a></div>
+				<div><a href="javascript:void(0);" class="addr_info">서울 중구 을지로 16 (을지로1가 188-3, 프레지던트호텔)</a></div>
+				<div><a href="javascript:void(0);" class="addr_info">서울 중구 을지로 19 (을지로2가 50, 삼성빌딩)</a></div>
+				<div><a href="javascript:void(0);" class="addr_info">서울 중구 을지로 23 (을지로1가 63, 그레벵뮤지엄)</a></div>
+				<div><a href="javascript:void(0);" class="addr_info">서울 중구 을지로 29 (을지로1가 87, 삼성화재)</a></div>
+				<div><a href="javascript:void(0);" class="addr_info">서울 중구 을지로 65 (을지로2가 SK텔레콤빌딩)</a></div>
+
+				<!-- 상세주소 입력해야 하는 경우 -->
+				<div class="ext">
+					<a href="javascript:void(0);" class="addr_info">서울 중구 을지로 65 을지로2가 SK텔레콤빌딩</a>
+					<input type="text" value="" placeholder="상세주소를 입력해 주세요" />
+					<button type="button" class="btn_ext">확인</button>
+				</div>
+				<!-- //상세주소 입력해야 하는 경우 -->
+
+				<div><a href="javascript:void(0);" class="addr_info">서울 중구 을지로 23 (을지로1가 63, 그레벵뮤지엄)</a></div>
+				<div><a href="javascript:void(0);" class="addr_info">서울 중구 을지로 29 (을지로1가 87, 삼성화재)</a></div>
+			</div>
+			<!-- //검색 결과 -->
+
+			<!-- 
+			20180208
+			주소 검색결과 [더보기] 버튼 추가
+			-->
+			<button type="button" class="btn_more"><span>더보기</span></button>
+
+			<!-- //내용끝 -->
+		</div>
+	</div>
+</div>
+<script>
+var $tab_li = $("#addr_tab li");				//Tab li
+var $partRoad = $(".part_road");				//도로명 검색 폼 영역
+var $partZipcode = $(".part_zipcode");	//지번 검색 폼 영역
+var className = "on";									//활성화 클래스 이름
+$tab_li.find("a").bind({
+	"click" : function(e){
+		e.preventDefault();
+
+		var data = $(this).data("tab-area");
+		if(data == "part_road"){
+			$partRoad.show();
+			$partZipcode.hide();
+		}else if(data == "part_zipcode"){
+			$partRoad.hide();
+			$partZipcode.show();
+		}
+		$tab_li.removeClass(className);
+		$(this).parent().addClass(className);
+	}
+});
+</script>
+<!-- 
+</body>
+</html>
+ -->

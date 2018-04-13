@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<!-- 
+20180320 수정
+title 수정
+SKT IoT(Cat.M1) 온라인개통 서비스 -> SKT IoT(Cat.M1) 온라인 신청
+-->
+<title>SKT IoT(Cat.M1) 온라인 신청</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+<script>
+$(document).ready(function(){
+	//이용약관
+	var $btn = $("#btn_terms");
+	$btn.bind({
+		"click" : function(e){
+			e.preventDefault();
+
+			//console.log("이용약관!!");
+			modal({id:'pop_terms', pageUrl:'./pop_terms.html'});
+		}
+	});
+
+	//FAQ
+	var $btn = $("#btn_faq");
+	$btn.bind({
+		"click" : function(e){
+			e.preventDefault();
+
+			//console.log("FAQ!!");
+			modal({id:'pop_faq', pageUrl:'./pop_faq.html'});
+		}
+	});
+});
+</script>
+</head>
+<body class="main">
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<!-- 
+			20180313 수정
+			SK telecom 로고 삭제
+			-->
+		</div>
+	</div><!-- //Header -->
+
+	<div id="container">
+		<div id="content">
+
+			<!-- 
+			20180308 수정
+			Cat.M1 자가개통 서비스 -> IoT(Cat.M1) 온라인개통
+			하단 문구 삭제
+
+			20180320 수정
+			문구 수정
+			온라인개통 -> 온라인 신청
+			-->
+			<div class="tit_area">
+				<h1 class="tit"><span>IoT Cat.M1</span> 온라인 신청</h1>
+			</div>
+			<!-- //Title Area -->
+
+			<!-- 
+			20180313 작업
+			아이콘 추가
+			 -->
+			<div class="item_box">
+				<ul>
+					<li><img src="./res/img/common/item01.png" alt=""></li>
+					<li><img src="./res/img/common/item02.png" alt=""></li>
+					<li><img src="./res/img/common/item03.png" alt=""></li>
+					<li><img src="./res/img/common/item04.png" alt=""></li>
+					<li><img src="./res/img/common/item05.png" alt=""></li>
+				</ul>
+			</div>
+
+			<!-- 
+			20180308 수정
+			단말신규등록/개통 -> 신규가입
+
+			20180320 수정
+			단말변경/선납연장 -> 단말변경
+			-->
+			<div class="part">
+				<ul>
+					<li><a href="reg_step01.html"><i class="icon ico_new"></i>신규가입</a></li>
+					<li><a href="chn_step01.html"><i class="icon ico_change"></i>단말변경</a></li>
+				</ul>
+			</div>
+			<!-- //Menu -->
+
+			<!-- 
+			20180308 작업
+			문구 추가
+
+			20180309 작업
+			문구 추가, 하단 문구 위치 변경
+
+			20180313 작업
+			문구 변경, 하단 문구 위치 변경
+			-->
+			<div class="p_desc">
+				<p>신청을 위해 <span><i class="icon id_card"></i> 신분증, <i class="icon credit_card"></i> 신용카드</span>를 꼭 준비해주세요.</p>
+			</div>
+
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+
+	<div id="footer">
+		<div class="infoot">
+			<div class="btm_menu">
+				<!-- 
+				20180405 수정
+				이용약관 -> LPWA 이용약관
+				-->
+				<ul>
+					<li><a href="#" id="btn_terms">LPWA 이용약관</a></li>
+					<li><a href="#" id="btn_faq" class="main_faq">FAQ</a></li>
+				</ul>
+			</div>
+
+			<p class="copy">&copy; SK TELECOM CO., LTD</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>

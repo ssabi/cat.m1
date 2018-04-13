@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<!-- 
+20180320 수정
+title 수정
+SKT IoT(Cat.M1) 온라인개통 서비스 -> SKT IoT(Cat.M1) 온라인 신청
+-->
+<title>SKT IoT(Cat.M1) 온라인 신청</title>
+
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+
+<script src="./res/js/libs/jquery-3.2.1.min.js"></script>
+<script src="./res/js/libs/jquery.easing.min.js"></script>
+<script src="./res/js/common.js"></script>
+<script>
+$(document).ready(function(){
+	//FAQ
+
+	var $btn = $("#btn_faq");
+	$btn.bind({
+		"click" : function(e){
+			//e.preventDefault();
+
+			//console.log("FAQ!!");
+			modal({id:'pop_faq', pageUrl:'./pop_faq.html'});
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<a href="#" class="back"><i class="icon ico_back"></i></a>
+
+			<!-- 
+			20180312 수정
+			페이지 타이틀 변경
+
+			신규가입일때는 신규가입
+			단말변경/선납연장일때는 변경/연장
+			-->
+			<strong>신규가입</strong>
+
+			<a href="#" class="btn_faq" id="btn_faq">FAQ</a>
+			<a href="./index.html" class="home"><i class="icon ico_home"></i></a>
+
+			<!-- 
+			20180312 수정
+			Step 정보 수정
+			기존 숫자형태에서 페이지별 타이틀로
+
+			현재 페이지는 active 클래스
+			지난 페이지는 comp 클래스
+
+			예)
+					<li class="active"><span>단말기등록</span></li>
+					<li><span>고객정보등록</span></li>
+
+					<li class="comp"><span>단말기등록</span></li>
+					<li class="active"><span>고객정보등록</span></li>
+
+			20180320 수정
+			명칭 변경
+			개통요청 -> 가입신청
+			-->
+			<div class="step">
+				<ul>
+					<li class="active"><span>단말기등록</span></li>
+					<li><span>고객정보등록</span></li>
+					<li><span>신청서작성</span></li>
+					<li><span>가입신청</span></li>
+				</ul>
+			</div>
+			<!-- //Progress -->
+		</div>
+	</div><!-- //Header -->
+
+	<div id="container">
+		<div id="content">
+
+			<div class="article">
+				<!-- 
+				20180321 수정
+				IMEI 정보란? 추가
+				-->
+				<h1 class="article_tit">
+					<label for="article02">IMEI 정보</label>
+					<span class="pos"><a href="#" id="btn_info_imei"><i class="icon ico_point off"></i>IMEI 정보란?</a></span>
+
+					<div class="guide_imei">
+						<div>
+							<a href="#" class="guide_close">닫기</a>
+
+							<span class="img"><img src="./res/img/common/imei.png" alt=""></span>
+							<p>IMEI 번호 <strong>15자리</strong>를 입력해 주십시오.</p>
+						</div>
+					</div>
+				</h1>
+
+				<div class="extbox">
+					<input type="tel" id="article02" value="" maxlength="15" class="type_number" placeholder="단말기 식별번호 15자리" />
+					<button type="button" class="btn active">확인</button>
+				</div>
+			</div>
+			<!-- //IMEI 정보 -->
+
+			<div class="article">
+				<h1 class="article_tit">단말기</h1>
+
+				<input type="text" value="" readonly="readonly" placeholder="IMEI 정보 확인 시 자동 입력됩니다." />
+			</div>
+			<!-- //단말기 -->
+
+			<div class="article">
+				<h1 class="article_tit"><label for="article03">요금제</label></h1>
+
+				<select id="article03" class="placeholder">
+					<option value="">요금제를 선택해주세요</option>
+					<option value="">###01</option>
+					<option value="">###02</option>
+					<option value="">###03</option>
+					<option value="">###04</option>
+					<option value="">###05</option>
+					<option value="">###06</option>
+				</select>
+			</div>
+			<!-- //요금제 -->
+
+			<!-- 
+			20180307 수정
+			항목 순서변경
+			금액(VAT 포함) 다음에 상세정보
+
+			 20180309 수정
+			 금액(VAT 포함) -> 금액(VAT포함)
+			 붙여쓰기로 변경
+			-->
+			<div class="article">
+				<h1 class="article_tit">금액(VAT포함)</h1>
+
+				<!-- 
+				20180305
+				금액 [원] 추가
+				-->
+				<div class="pay">
+					<input type="text" class="ta_r" value="680,000" readonly="readonly" placeholder="" />
+					<span>원</span>
+				</div>
+
+				<p class="point"><i class="icon ico_point"></i>선택한 요금제의 12개월 합산금액이며, 본인 인증하신 정보의 카드로 결제됩니다.</p>
+				<!-- <p class="point"><i class="icon ico_point"></i>선택한 요금제의 월 금액입니다.</p> -->
+			</div>
+			<!-- //금액 -->
+
+			<div class="article">
+				<h1 class="article_tit">상세정보</h1>
+
+				<div class="detail_view">Cat.M1 단말  전용 가장 경제적인 선불 요금제 상품입니다.</div>
+			</div>
+			<!-- //요금제 상세정보 -->
+
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+
+	<!-- 
+	20180320 수정
+	하단 버튼 고정
+	-->
+	<div class="fixed">
+		<div>
+			<!-- 
+			<button type="button" class="btn_ext" disabled="disabled">다음</button>
+			 -->
+			<!-- 
+			활성화 버튼
+			-->
+			<button type="button" class="btn_ext active">다음</button>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>
